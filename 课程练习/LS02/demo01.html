@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>有关Number</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //Number构造器属性（静态属性）
+    Number.MAX_VALUE
+    Number.MIN_VALUE
+    Number.NaN
+    Number.NEGATIVE_INFINITY
+    Number.POSITIVE_INFINITY
+
+    //Number原型方法(Number对象继承的方法）
+    Number.prototype.toFixed();
+    Number.prototype.toPrecision();
+    Number.prototype.toString();
+    Number.prototype.toExponential();
+
+    var n1 = 12345.6789;
+    console.log(n1.toFixed(2));
+    console.log(n1.toPrecision(2));
+    console.log(n1.toString());
+    console.log(n1.toExponential(2));
+
+  
+    console.log(NaN === NaN);
+    console.log(isNaN("12,3"));
+    console.log(Math.floor(3.8));
+    console.log(Math.floor(-3.8));
+    console.log(Math.ceil(3.2));
+    console.log(Math.ceil(-3.2));
+    console.log(Math.round(-3.2));
+    console.log(Math.round(-3.5));
+    console.log(Math.round(-3.8));
+</script>
+</html>
