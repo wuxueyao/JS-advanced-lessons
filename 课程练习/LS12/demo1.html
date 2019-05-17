@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //闭包引入案例
+    function f1(){
+        var x = 1;
+        function f2(){
+            return x++;
+        }
+        return f2();
+    }
+    var f3 = f1();
+
+    //观察f1中的x变量
+    console.log(f3); //1
+    console.log(f3); //1
+
+    /*例子：*/
+    //01.
+    function createInc(startValue){
+        return function(step){
+            startValue += step;
+            return startValue;
+        }
+    }
+    var inc = createInc(5);
+    console.log(inc(1));//6
+    console.log(inc(2));//8
+
+    var inc = createInc(5);
+    console.log(inc(1));//6
+
+    //02.
+    function c2(start){
+        return function(step){
+            start+=step;
+            return start;
+        }
+    }
+    var i1 = c2(5);
+    console.log(i1(1)); //6
+    console.log(i1(2)); //8
+    var i2 = c2(5);
+    console.log(i1(1)); //9
+    console.log(i2(1)); //6
+
+
+    //03.
+    function foo(){
+        var i = 0;
+        function bar(){
+            console.log(++i);
+        }
+        return bar();
+    }
+    foo(); //1
+    foo(); //1
+
+    //04.
+    function f(){
+        var i = 0;
+        function bar(){
+            console.log(++i);
+        }
+        return bar;
+    }
+    var a = f();
+    var b = f();
+    a(); //1
+    a(); //2
+    b(); //1
+</script>
+</html>
