@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //修改obj属性的特性
+    var obj = {
+        x:1,
+        y:2
+    };
+    //Object.defineProperty(obj,"x",{writable:false,value:11,enumerable:false,configurable:true});
+    Object.defineProperty(obj,"x",{enumerable:false});
+    for(var k in obj){
+        console.log(k,obj[k]);
+    }
+</script>
+</html>
