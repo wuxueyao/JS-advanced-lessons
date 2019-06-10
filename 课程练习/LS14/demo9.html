@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //属性特性的继承特点
+    var o1 = {};
+    Object.defineProperty(o1,"x",{
+        value:12,
+        //writable:true
+    });
+
+    o1.x = 34;
+    console.log(o1.x);
+
+    var o2 = Object.create(o1);
+    o2.x = 56; 
+    console.log(o2.x);
+    //writable为false,x的值不可修改，为true可以，就是赋的值
+
+    //访问器属性特性的继承特点
+    var o3 = {_x:21};
+    Object.defineProperty(o3,"x",{
+        get:function(){return this._x}
+    });
+    o3.x = 34;
+    console.log(o3.x);//21
+
+    var o4 = Object.create(o3);
+    Object.defineProperty(o4,"x",{
+        set:function(val){
+            this._x = val;
+        },
+        get:function(){
+            return ++this._x;
+        }
+    });
+    o4.x = 56;
+    console.log(o4.x); //57
+
+    //全局变量的属性特性是如何的
+    //{value:23,writable:true,enumerable:true,configurable:false}
+
+    var a = 23;
+    console.log(Object.getOwnPropertyDescriptor(window,"a"));
+    delete a;  //等效于 delete window.a;
+
+
+</script>
+</html>

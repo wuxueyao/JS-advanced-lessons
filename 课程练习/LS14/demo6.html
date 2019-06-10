@@ -10,5 +10,21 @@
     
 </body>
 <script>
+    var person = {_name:"jack"};
+    Object.defineProperty(person,"name",{
+        configurable:false,
+        enumerable:true,
+        set:function(val){
+            thid._name = val
+        },
+        get:function(){
+            return this._name
+        }
+    });
+    console.log(person.name);
+    person.name = "lucy";
+    console.log(person.name);
+    delete person.name;
+    console.log(person.name);
 </script>
 </html>
