@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>稀疏数组</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arr1 = [,2,3,,5];
+    console.log(arr1.length); //5
+
+    Array.prototype.min = "扩展属性";
+
+    /*
+        遍历数组的过程中，需要注意，可能会出现不需要的属性
+    */
+    for(var i in arr1){
+        console.log(i,arr1[i]);//会将扩展属性也输出
+    }
+
+    
+</script>
+</html>

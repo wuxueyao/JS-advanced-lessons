@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作用域链</title>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+<script>
+    //01.===这样写的话，当前作用域没有div1，所有去上面找，show范围内也没有，所有去全局找
+    document.onclick = function(){
+                div1.innerHTML = "hello world";
+    }
+    
+    //02.===这样写缩短了作用域链，提高了执行效率
+    var div1 = document.getElementById("div1");
+    function show(el){
+        (function(el){
+            document.onclick = function(){
+                div1.innerHTML = "hello world";
+            }
+        })(el)
+    }
+    show(div);
+
+    //03.===这样写是限定了范围
+    (function(w,d){
+        d.getElementById("div1").onclick=fun1
+    })(window,document);
+</script>
+</html>

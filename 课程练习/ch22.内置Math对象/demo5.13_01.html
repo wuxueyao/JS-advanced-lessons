@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js内置对象Math</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        Math.random();
+        得到的是一个0~1之间的值 [0,1)
+    */
+    for(var i=0;i<5;i++){
+        console.log(Math.random());
+    }
+
+    function getMiddle(min,max){
+        return Math.random()*(max-min) + min;
+    }
+    console.log(getMiddle(3,9));
+</script>
+</html>

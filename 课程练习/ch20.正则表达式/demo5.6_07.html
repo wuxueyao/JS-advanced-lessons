@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>常用正则表达式</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var reg1 = /\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+/; //邮箱
+    var reg2 = /^[A-Za-z0-9_-]+$/ ; //密码
+    var reg3 = /((?:(?:25[0-5]|2[0-4]\d|[01]?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d?\d))/; //IP地址
+    var reg4 = /(.*)\.(rar|zip|7zip|tgz)$/ ; //压缩格式
+    var reg5 = /(.*)\.(jpg|bmp|gif|ico|pcx|jpeg|tif|png|raw|tga)$/ ; //图片判断
+    var reg6 = /^#[a-fA-F0-9]{6}$/ ; //颜色值
+    var reg7 = /^[A-Za-z0-9_\-\u4e00-\u9fa5]+$/ ; //用户名
+    var reg8 = /0?(13|14|15|18)[0-9]{9}/ ; //手机号
+</script>
+</html>

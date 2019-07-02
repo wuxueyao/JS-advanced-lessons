@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型共享问题_4.Animal and Bird</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Animal(name,weight){
+        this.name = name;
+        this.weight = weight;
+    }
+    Animal.prototype.run = function(){
+        console.log(this.name + " can run")
+    }
+
+    function Bird(name,weight,color,height){
+        Animal.call(this,name,weight);
+        this.color = color;
+        this.height = height;
+    }
+    Bird.prototype.__proto__ = Animal.prototype;
+    var b1 = new Bird("啾啾","2kg","黄色","5cm");
+    console.log(b1);
+    b1.run();
+</script>
+</html>

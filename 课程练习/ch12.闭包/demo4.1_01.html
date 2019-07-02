@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>以对象方式返回闭包</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //闭包
+    function foo(x){
+        var tmp = 10;
+        return function(y){
+            console.log(x+y,++tmp);
+        }
+    }
+
+    var fee = foo(10);
+    fee(1);
+
+    //这样就不是闭包了，因为tmp是一个全局变量，
+    //任何部分都可以对他操作,失去了闭包的意义
+    var tmp = 10;
+    function foo(){
+        return function(){
+            console.log(++tmp);
+        }
+    }
+
+    var fee = foo();
+    fee();
+</script>
+</html>

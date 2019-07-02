@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象匹配赋值</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        根据键名匹配变量，将键值赋值给对应变量
+    */
+    let {foo2,bar2} = {bar2:"bar",foo2:"foo2"};
+    console.log(foo2,bar2);
+
+    /*
+        如果均为键值对的形式，键名仅仅是用来匹配
+        键值会赋值给键值位置变量
+    */
+    let{k1:v1,k2:v2} = {k1:"aaa",k2:"bbb"};
+    console.log(v1);
+</script>
+</html>

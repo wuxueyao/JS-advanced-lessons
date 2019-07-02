@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        Promise 将异步执行的操作写成同步执行的方式
+    */
+    /*
+        resolve 是异步操作成功时候的调用
+        reject  是异步操作失败时候的调用
+    */
+
+    new Promise(function(resolve,reject){
+        //函数体内部写相应的异步执行
+        setTimeout(function(){
+            console.log("world");
+            resolve(); 
+            //是在告诉外面，这里的异步执行已经完成，这里调用哪个函数下边就执行第几个函数
+        }, 3000);
+    }).then//then后边是两个函数
+    (function(){ 
+        //对应的是resolve
+        console.log("hello");//这个代码的执行需要等上边的执行完才会执行
+        console.log(val);
+    },function(){
+        //对应的是reject
+    }).catch(function(e){
+        /*捕获异常*/
+        console.log(e); //由于第31行没有定义val，所以会报错，这里就会捕获
+    }).finally(function(){
+        /*无论如何都会执行*/
+        console.log("finally 执行结束")
+    })
+</script>
+</html>

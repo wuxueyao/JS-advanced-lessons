@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IIFE避免变量共享错误</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //===每次循环的时候都调用一次匿名函数的执行
+    //匿名函数执行了多少次就意味着形成了多少个作用域
+    //这样就可以把i的每个值传给j
+    function foo(){
+        var arr1 =[];
+        for(var i=0;i<10;i++){
+            (function (j){
+                arr1[j] = function(){
+                    return j;
+                };
+            })(i);
+        }
+        return arr1;
+    }
+    var arr2 = foo();
+    arr2[0]();
+
+
+</script>
+</html>

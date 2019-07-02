@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>立即执行函数</title>
+</head>
+<body>
+    <input type="text" name="username" id="username"/>
+</body>
+<script>
+    (function(w,d){
+        function InputIdentify(inputid){
+            this._init(inputid);
+        }
+        InputIdentify.prototype._init = function(inputid){
+            var inputObject = document.getElementById(inputid);
+            this.inputObject = inputObject; //this指代实例化得到的对象
+        }
+
+        InputIdentify.prototype._effect = function(){
+            this.inputObject.onblur = function(){
+                console.log("文本框失去焦点");
+            }
+            this.inputObject.onfocus = function(){
+                console.log("文本框获得焦点")
+            }
+        }
+        w.InputIdentify = InputIdentify; 
+        //如果没有这上一句，34行会报错找不到InputIdentify，
+        //因为立即函数形成了自己独立的作用域
+    })(window,document)
+
+    var input1 = new InputIdentify("username");
+</script>
+</html>

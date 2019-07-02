@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>直接匹配赋值</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        进行两侧的模式匹配，然后完成对应位置上的变量赋值
+    */
+    let[, , third] = ["bar","foo","baz"]; //直接匹配赋值，前一个没有的就不赋值了
+    console.log(third);
+
+    let [head,...tail]=[1,2,3,4];
+    //...代表剩余运算符，除了1都赋值给tail了，是个数组
+    console.log(head,tail);
+</script>
+</html>

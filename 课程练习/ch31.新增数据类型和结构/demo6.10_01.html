@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新增symbol</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    //这要用了symbol声明，不管参数是否一样，两个变量都不一样
+    //symbol变量的唯一性，只要生成了就是唯一的
+    /*
+        使用symbol方法生成一个symbol的变量
+        并且具有唯一性
+        不可转化其它数据类型
+    */
+    let s1 = Symbol("s1");
+    let s2 = Symbol("s1");
+
+    console.log(s1);
+    console.log(s2);
+    console.log(s1===s2);
+</script>
+</html>

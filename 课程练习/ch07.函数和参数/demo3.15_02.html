@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数调用方法</title>
+</head>
+<body>
+    <!-- 调用函数没有返回值的时候就会有undefined，否则就是返回值 -->
+</body>
+<script>
+    //01.在非严格模式下this指向全局变量window
+    function test(){
+        console.log(this);
+    }
+    test();
+
+
+    //02.对象内部方法调用，this指向调用该方法的对象
+    var obj={
+        x:0,
+        test:function(){
+            console.log(this);
+            console.log(this.x);
+        }
+    }
+    obj.test();
+
+    //03.方法.call(对象)
+    //将方法的调用执行从原有对象切换当前对象
+    var objA={"objName":"AAA"};
+    var objB={"objName":"BBB"};
+    objA.test=function(){
+        console.log(this.objName);
+    }
+    objA.test();
+    objA.test.call(objB);
+    //调用call方法，就把A的方法给了B，让B调用，也就是调用方法的对象发生了变化
+
+
+    //04.对于共有方法可以用prototype
+    function Person(username){
+        this.username=username;
+        this.sayHi=function(){
+            console.log(this.username);
+        }
+    }
+    Person.prototype.sayHi = function(){//定义公共的属性可以用prototype
+        console.log(this.username);
+    }
+    var person =new Person("zhangsan");
+    var person1 = new Person("lisi");
+    console.log(person,person1);
+</script>
+</html>

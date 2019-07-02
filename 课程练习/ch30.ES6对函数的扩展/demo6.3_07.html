@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>有剩余操作符参数的函数</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        剩余操作
+            可以接收剩下的所有实参
+            必须放在参数的最后位置
+    */
+    function fn1(x,...y){
+        console.log("x=",x,"y=",y);
+    }
+    fn1(1,2,3,4,5);
+
+    
+    /*
+        扩展运算符
+            将数组转化为以","分隔的参数结构
+            是剩余操作符的逆操作
+    */
+    function fn2(){
+        console.log(arguments);
+    }
+    fn2(1,...[2,3,4,5]);
+    fn2(1,2,3,4,5);
+
+    function fn3(a,b,c,d,e,f){
+        console.log(a,b,c,d,e,f);
+        console.log(arguments);
+    }
+    fn3(1,...[2,3,4,5]);
+</script>
+</html>

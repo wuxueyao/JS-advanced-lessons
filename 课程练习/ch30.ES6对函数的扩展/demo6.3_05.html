@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this指向问题处理</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        存在函数嵌套，this指向不正确时，解决方案
+        1.通过that转存
+        2.bind硬绑定
+        3.apply call
+        4.箭头函数  用在回调函数那里比较方便
+
+    */
+
+    var obj = {
+        objname:"obj1",
+        showName:function(){
+            setTimeout(function(){
+                console.log(this);
+                //如果不转存，直接调用this，指的是window
+                console.log(this.objName);  
+            },3000)
+        }
+    }
+    obj.showName()
+
+    var objes6 = {
+        objname:"obj1",
+        showName:function(){
+            setTimeout(()=>{
+                //多层嵌套，箭头函数可以解决this指向的问题
+                console.log(this);
+                console.log(this.objName);  
+            },3000)
+        }
+    }
+    objes6.showName()
+</script>
+</html>

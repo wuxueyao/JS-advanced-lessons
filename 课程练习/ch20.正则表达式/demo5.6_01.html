@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则表达式结构</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        正则表达式的结构：
+            /正则表达式文本/标识符
+    */
+    /*
+        [xyz]：从中括号中的字符中选任意一个
+        i标识符：是否忽略大小写
+        g标识符：是否全局检索
+    */
+
+    //正则表达式的三种定义方法
+    var reg1 = /[bcf]at/gi; /*字面量定义*/
+    //i的作用是忽略大小写
+    var reg2 = new RegExp( /[bcf]at/,"gi");
+    var reg3 = new RegExp( "[bcf]at","gi");
+    var str1 = "bat cat fat Fat difijfi";
+    str=str1.match(reg1);//match可以检索一个字符串匹配正则表达式的结果
+    console.log(str);
+</script>
+</html>

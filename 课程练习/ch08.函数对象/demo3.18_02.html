@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数对象的属性</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //01.
+    //length 属性表示的是函数的形参个数
+    //arguments是函数调用时，实参类数组集合
+    function fn1(){
+        for(var i=0;i<arguments.length;i++){
+            console.log(arguments[i]);//输出传入的实参
+        }
+    }
+    fn1(1,2,3);
+
+
+    //02.
+    //函数.caller()表示被哪个函数所调用
+    function fn2(){
+        console.log(fn2.caller);
+    }
+    function fn02(){
+        fn2();
+    }
+    fn02();
+
+
+    //03.
+    //匿名函数的递归调用
+    //arguments.callee();
+    var func=function(n){
+        if(n<=0){
+            return 1;
+        }else{
+            return n*arguments.callee(n-1);
+            //return n*func(n-1);  //等价于这个
+        }
+    };
+    console.log(func(4));
+</script>
+</html>

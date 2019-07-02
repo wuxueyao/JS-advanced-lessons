@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>访问属性</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var o ={
+        "username":"zhangsan",
+        "age":20
+    }
+    console.log(o.username);
+    console.log(o["username"]);
+    var newPro ="sex";
+    //访问属性的时候[]更通用一些，里边可以放变量
+    //.里边不可以方变量
+    o[newPro]="male";
+    for(var i in o){
+        console.log(o[i]);
+    }
+</script>
+</html>

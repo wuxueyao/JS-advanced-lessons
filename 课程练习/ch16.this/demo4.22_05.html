@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>间接调用中的this</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var objA = {name:"AA",x:1};
+    var objB = {name:"BB",x:2};
+
+    function test(arg1){
+        this.name=arg1;
+        console.log(this.name,this.x);
+    } //(*代表不加参数，没有大括号里的第一行)
+
+
+    objA.fun = test;
+    objA.fun(); //AA 1 (*)
+    //仍然是函数内部的this取决于调用函数的主体
+    
+
+    /*
+        函数也是对象，函数对象
+        函数对象的构造函数 Function
+        函数对象.__proto__ == Function.prototype
+    */
+
+    /*
+        方法.call(函数调用主体对象)
+    */
+    objA.fun.call(objB); //BB 2 (*)
+    //本来是由objA调用执行，结果变成了objB
+
+    objA.fun.call(objB,"CC");
+</script>
+</html>

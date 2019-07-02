@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person(username,age){
+        this.username = username;
+        this.age=age;
+    }
+    var p = new Person("zhangsan",20);
+    //不管原型链有多长，所有对象的头都是Object
+    console.log(p.__proto__==Person.prototype);
+    console.log(p.__proto__.__proto__==Object.prototype);
+    console.log(p.__proto__.__proto__.__proto__);
+
+
+    console.log(Object instanceof Function);
+    console.log(Object instanceof Object);
+    console.log(Object instanceof Function);
+    console.log(Number instanceof Function);
+    console.log(Number instanceof Object);
+    console.log(Function instanceof Function);
+    console.log(Function instanceof Object);
+    console.log(Array instanceof Function);
+    console.log(Array instanceof Object);
+    console.log(Math instanceof Function);
+    console.log(Math instanceof Object);
+    console.log(JSON instanceof Function);
+    console.log(JSON instanceof Object);
+</script>
+</html>

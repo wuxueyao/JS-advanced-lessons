@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        如果等号右侧的不是一个对象时，会转化成对象
+    */
+    let [a,b,c,d] = "hello";
+    console.log(a,b,c);
+
+    //不能给字符串赋值
+    let {toString:s} = 123;
+    console.log(s);
+
+    let num = new Number(123);
+    let {toString:s} = num;
+    console.log(s == Number.prototype.toString);
+</script>
+</html>

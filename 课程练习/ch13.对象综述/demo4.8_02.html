@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //01.
+    function Person(username,age){
+        //this是这个实例化对象
+        this.username = username;
+        this.age=age;
+        this.sayHi = function(){
+            console.log(this.username);
+        }
+    }
+    var person1=new Person("zhangsan",20);
+    var person2=new Person("lisi",21);
+    person1.sayHi();
+    person2.sayHi();
+    console.log(person1.__proto__==Person.prototype);
+
+
+
+    //02.
+    //因为person1.__proto__=Person.prototype
+    //所以直接在Person的prototype里定义，
+    //然后实例化的对象就都可以使用这个属性
+    function Person1(username,age){
+        //this是这个实例化对象
+        this.username = username;
+        this.age=age;
+    }
+    Person1.prototype.sayHi = function(){
+        console.log(this.username);
+    }
+    var person11=new Person1("zhangsan",20);
+    var person12=new Person1("lisi",21);
+    person11.sayHi();
+    person12.sayHi();
+</script>
+</html>

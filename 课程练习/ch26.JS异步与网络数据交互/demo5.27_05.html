@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax异步请求</title>
+</head>
+<body>
+    <img src="../1.jpg" />
+    <span id="title"></span>
+    <button id="btn">刷新</button>
+</body>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    /*
+        ajax异步请求从后端请求数据，会局部刷新页面
+        XMLHTTpRequest js原生发起ajax请求的对象
+        jQuery ajax 对 XMLHttpRequest 做了封装
+    */
+    $("#btn").click(function(){
+
+        $.ajax({
+            url:"./server.php",
+            type:"get",
+            success:function(data){
+
+            },
+            error:function(err){
+
+            }
+        })//等到特定条件满足了才会执行
+
+        console.log("你好");//点击按钮就会出现，属于异步的
+    })
+</script>
+</html>

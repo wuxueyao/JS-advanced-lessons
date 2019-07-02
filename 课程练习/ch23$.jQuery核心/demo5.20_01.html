@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery文档就绪事件</title>
+</head>
+<body>
+    
+</body>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    /*
+        window.onload 触发的时候需要所有的内容都加载出来才会触发，比较慢
+        写多个还会覆盖
+    */
+
+    $(document).ready(function(){
+        alert(10);
+    })
+
+    $(document).ready(function(){
+        alert(2);
+    })
+
+</script>
+</html>

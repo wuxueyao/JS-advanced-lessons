@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>实际应用案例</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //01.因为闭包，所以a常驻内存，始终存在
+    function fn(){
+        var a;
+        return function(){
+            return a||(a=document.body.appendChild(document.createElement('div'))); //如果存在就用，如果不存在就创建一个
+        }
+    };
+    var f = fn();
+    f();
+
+
+    //02.定时修改DOM节点案例，1秒后执行，仍能访问到objID
+    function closureExample(objID,text,timedelay){
+        setTimeout(function(){
+            console.log(objID,text);
+        },timedelay)
+    }
+    closureExample("myDiv","Closure is Create",1000);
+</script>
+</html>

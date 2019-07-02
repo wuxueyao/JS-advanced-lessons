@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person(username,age){
+        this.username=username;
+        this.age=age;
+    }
+    Person.prototype.sayHello = function(){
+        console.log("hello zhaocong");
+    }
+    var person1 = new Person("zhaocong",20);
+    var person2 = new Person("xiangzhen",20);
+    console.log(person1.__proto__==Person.prototype);
+    console.log(person1,person2);
+    person1.sayHello();
+    person2.sayHello();
+
+    //person1和person2都是实例化得到的，
+    //他们的__proto__都和构造函数Person的prototype一样
+    //因此，sayHello可以在person1和person2中直接调用
+    //他们的指向都是一样的，不用每实例化一个对象就创建一个这个方法
+    //同样的东西，共享，这样可以节省内存
+
+</script>
+</html>

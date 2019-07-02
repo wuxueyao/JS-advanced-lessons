@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IIFE避免代码污染</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var userId=2;
+    document.onclick = function(){
+        alert(userId);
+    }
+    //很长一段代码
+
+    //===01.会代码污染
+    if(true){
+        var userId = 20;
+    }
+    /*//预解析
+    var userId;
+    var userId;
+    userId=2;
+    document.onclick=function(){
+        alert(userId);
+    }
+    if(true){
+        userId = 20;
+    }*/
+
+
+    //02.立即执行函数，避免了代码污染
+    (function(){
+        if(true){
+            var userId=20;
+        }
+    })()
+
+</script>
+</html>

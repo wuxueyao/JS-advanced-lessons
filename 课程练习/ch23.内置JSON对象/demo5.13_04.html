@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON.stringify方法中放数组</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        JSON:
+            1.前后端数据交互传输数据格式
+            2.作为数据数据存储的数据格式
+    */
+    var jsObject = {
+        "username":"zhangsan",
+        "age":20,
+        "address":[{
+            "addName":"石家庄",
+            "addCode":"111222"
+        },{
+            "addName":"上海",
+            "addCode":"222111"}
+        ]
+    };
+    //var jsonStr = JSON.stringify(jsObject,["username","age"]); //这样就只过滤留下数组属性
+
+    var jsonStr = JSON.stringify(jsObject);
+
+    var jsObject =JSON.parse(jsonStr,function(k,v){ //这个意思就是要先走内部属性
+        console.log(k,v);//这样会将对象内部的属性先输出
+    })
+
+    // console.log(jsonStr);
+</script>
+</html>

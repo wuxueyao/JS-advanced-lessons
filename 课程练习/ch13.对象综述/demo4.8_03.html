@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加属性</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var obj = {x:1};
+    var z = "age";
+    //obj.z=20; //如果这样写没有age的名字，直接是z
+    obj[z]=20; //这样写有了age的名字
+    //添加属性的时候用.，是直接将.后边的作为属性名
+    //用[],可以定义一个变量，变量名字符串作为属性名
+    
+    obj.y=2;
+    obj["y"]=3;
+
+    console.log(obj);
+
+    for(var i in obj){
+        console.log(i,obj[i]);
+    }
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用正则表达式替换字符串中的字符</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+        元字符，没有任何修饰字符，无特殊含义
+        123345 acfdv
+    */
+    var reg1 = /ab/gi;//这里加了[]和不加[]后面的替换是不一样的，加了[]就是xxcdefg
+    var str1 = "abcdefg";
+    var str = str1.replace(reg1,"x"); //将ab替换为x
+    console.log(str);
+</script>
+</html>

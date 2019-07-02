@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>字符边界</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        ^m  以m开头的字符串匹配 （表示以特定字符开头）
+        n$  以n结尾的字符串匹配 （表示以特定字符结尾）
+    */
+    var str = "a1fdfdfjkdjfkda2";
+
+    //以a开头
+    var reg1 = /^a\d/gi;
+    str1=str.replace(reg1,"x");
+    console.log(str1);
+
+    //以数字结尾
+    var reg2 = /a\d$/gi;
+    str2=str.replace(reg2,"x");
+    console.log(str2);
+</script>
+</html>

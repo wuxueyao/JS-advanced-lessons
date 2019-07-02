@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>生成器定义</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //可以通过生成器自己做一个遍历器
+    function* helloGenerator(){
+        yield "hello";
+        yield "world";
+        return "ending";
+    }
+
+    let iterator1 = helloGenerator();
+    console.log(iterator1.next());
+    console.log(iterator1.next());
+    console.log(iterator1.next());
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>预解析-声明提升</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //预解析可以将var和function的代码提升到最前边
+    //函数预解析提升的位置比变量预解析提升的位置高
+    //01.
+    if(true){
+        var a = 1;
+    }
+    console.log(a);//1
+
+    if(false){
+        var b=2;
+    }    
+    console.log(b);//undefined
+
+    console.log(c);//1
+    var c=1;
+
+    //02.
+    function fn0(){
+        //函数内部的预解析，在函数作用域范围内，对变量进行提升
+        console.log(b);
+        var b=2;
+    }
+    console.log(b);
+
+    function fn1(){
+        fn2();
+        function fn2(){
+            console.log("hello world");
+        }
+    }
+    fn1();
+    //fn2();//作用域是函数之内，在外边调用不出来
+</script>
+</html>

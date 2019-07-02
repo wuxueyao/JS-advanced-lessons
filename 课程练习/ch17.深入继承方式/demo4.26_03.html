@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型共享问题_3.Person and Student</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+        //如果没有实例化对象，则这里直接调用时this指的是window
+    };
+    Person.prototype.showName = function(){
+        console.log(this.name);
+    };
+    function Student(name,age,id){
+        Person.call(this,name,age);//将函数调用主体切换成this（student）
+        this.id = id;
+    }
+    Student.prototype.__proto__ = Person.prototype;
+    var s1 = new Student("赵聪",20,2017001);
+    var s2 = new Student("向真",19,2017002);
+    console.log(s1,s2);
+    s1.showName();
+    s2.showName();
+    
+</script>
+</html>

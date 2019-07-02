@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>属性特性的继承</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var o1={x:1};
+    var o2=Object.create(o1);
+    console.log(o1);
+    console.log(o2);
+    console.log(o2.__proto__==o1);
+    console.log(o2.x); //有就输出，没有属性值就到它的原型对象上找
+    
+    //往o2自身上面添加属性x
+    o2.x=2;
+    console.log("o2上添加的x:"+o2.x); 
+
+    //只能删除自身上的属性，不能删除继承的原型上的
+    delete o2.x;
+    console.log("删除了o2上添加的x，剩下原型上的x："+o2.x); 
+
+    o2.__proto__.x=3;
+    console.log("o1上修改了的的x："+o1.x);
+    console.log("o2继承原型o1的x："+o2.x);
+    
+</script>
+</html>

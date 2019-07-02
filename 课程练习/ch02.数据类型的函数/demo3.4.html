@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>各种数据类型的函数应用</title>
+</head>
+<body>
+    
+</body>
+<script>
+//1.Number
+    /*01.toFixed(n)，保留特定位数的小数，
+        超出特定位数的四舍五入，
+        返回的是字符串
+    */
+    var num1=20;
+    num1.toFixed(2);
+
+    var num1=20;
+    var numobject = new Number(num1);     //以上代码实际是进行了装箱，成立对象，所以有属性可以用
+    console.log(numobject);
+    console.log(numobject._proto_==Number.prototype);//对象的_proto_和构造函数的prototype是一样的
+    numobject.toFixed();
+
+    /*02.toPrecision(数字位个数)，四舍五入；
+        数字位个数小于数字整数位时，表示为指数形式，
+        大于或者等于数字整数位时，直接四舍五入截取
+    */
+    var num2=12345.789;
+    for(var i=1;i<7;i++){
+        console.log(num2.toPrecision(i)); 
+    }
+
+
+//2.String
+    var str ="abc*def*ghi";
+    /*01.fromCharCode(97,98,99)，将特定的Unicode转化为字符*/
+    String.fromCharCode(97,98,99);
+
+    /*02.charCodeAt(index)将特定索引位置的字符转换成Unicode码输出*/
+    str.charCodeAt(0);
+    str.charAt(0);//这个是把特定位置的字符输出来
+    
+    /*03.slice(截取的起始位置，截取的结束位置)区间左开右闭
+        如果截取的结束位置小于0的，实际结束位置为
+        str.length+截取结束参数
+    */
+    str.slice(0,3);
+    str.slice(0,-1);
+
+    /*04.substr(截取的起始位置，截取的长度)
+         截取长度可以缺省，表示从起始位置到字符串结束
+    */
+    str.substr(0,3);
+
+    /*05.substring(截取的起始位置，截取的结束位置)
+        如果截取起始位置值>截取结束位置值，两者会互换位置，
+        超出 0 ~ str.length 范围的，会被截断
+    */
+    str.substring(0,3);
+
+    /*06.split(分隔符号，限定生成数组的长度)*/
+    str.split("*",2);
+
+    /*07.trim()，去除字符串起始和结束位置的空格*/
+    var str2="   ab  c   ";
+    str2.trim();
+
+    /*08.concat(新加的字符串)，把新加的字符串拼接到原来的字符串之后，
+        成为一个新的字符串
+    */
+    var str1="abc";
+    str1.concat("def","ghi");
+
+    /*09.indexOf(查找的特定字符，查找的起始位置)
+        返回值是字符串第一次出现的索引位置
+        查找不到，返回值为-1
+    */
+    str.indexOf("bcd",1);
+
+    /*10.lastIndexOf(查找的字符串，查找的结束位置)
+        返回值是字符串最后一次出现的索引位置
+    */
+    str.lastIndexOf("bcd",6);
+
+//3.Boolean
+    /*除了Boolean(null)是false，其他都是true*/
+</script>
+</html>

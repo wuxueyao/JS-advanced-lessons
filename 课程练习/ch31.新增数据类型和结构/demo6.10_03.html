@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let s1 = new Set([1,2,3,4,5,6,2,3,1]);
+    console.log(s1);
+    console.log(s1.values);
+
+    for(let i of s1){
+        console.log(i);
+    }
+    console.log(s1.size);
+    s1.add(1);
+    s1.delete("hello");
+    s1.has(5);
+    console.log(s1.keys);
+    console.log(s1.values);
+    console.log(s1);
+
+</script>
+</html>

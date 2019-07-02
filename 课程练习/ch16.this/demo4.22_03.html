@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>（无嵌套）对象方法中的this</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var point = {
+        x:0,
+        y:0,
+        moveTo:function(x,y){
+            this.x=x;
+            this.y=y;
+        }
+
+        //在方法调用的时候才会确定this指向谁
+    }
+
+    /*
+        函数或者方法的内部this指向，取决于该函数的调用主体
+    */
+    point.moveTo(10,10);
+</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>&& 和 ||的实际应用</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //------01.使用||来设置函数参数的默认值
+    function sum0(x,y,z){
+        x=x;
+        y=y;
+        z=z;
+        console.log(x,y,z);
+        return x+y+z;
+    }
+    console.log(sum0());
+
+    //ES5给函数参数加默认值的处理方式
+    function sum(x,y,z){
+        x=x || 1;
+        y=y || 2;
+        z=z || 3;
+        console.log(x,y,z);
+        return x+y+z;
+    }
+    console.log(sum());
+    console.log(sum(false,false,false));//还是会取默认值
+    console.log(sum(5,0,0));//0的还是会取默认值，导致结果错误
+
+    // function sum(x,y,z){
+    //     x=x || 1 && x!=false ; 
+    //     y=y || 2 && x!=false ;
+    //     z=z || 3 && x!=false ;
+    //     console.log(x,y,z);
+    //     return x+y+z;
+    // }
+    // console.log(sum(5,0,0));//0的还是会取默认值，导致结果错误
+
+    //ES6中设置函数参数的默认值
+    function sum1(x=1,y=2,z=3){
+        return x+y+z;
+    }
+    console.log(sum1(4,5,6));
+</script>
+</html>

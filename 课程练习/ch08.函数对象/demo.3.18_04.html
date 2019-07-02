@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>高阶函数</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //*************高阶函数是指函数的使用形式，可以作为一个参数来使用
+
+    //嵌套函数的this指向
+    //this没有办法穿透
+    var objName="obj2";  //全局变量定义在window上，也就是全局对象上
+    var obj={
+        "objName":"obj1",
+        "show":function(){
+            function fn1(){
+                console.log(this.objName);
+                console.log(this);
+            }
+            fn1();
+        }
+    }
+    obj.show();
+
+
+    function fn2(){
+        console.log(this);
+    }
+    fn2();//这个也指的是window
+</script>
+</html>

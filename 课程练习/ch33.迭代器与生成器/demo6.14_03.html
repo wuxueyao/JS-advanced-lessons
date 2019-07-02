@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        只需要查看数据是否具有Symbol.iterator属性
+        就可以知道该数据结构是否可被遍历器遍历
+    */
+    let arr1 = [1,2,3];
+    console.log(arr1[Symbol.iterator]);
+
+    let obj = {name:"zhaocong"};
+    console.log(obj[Symbol.iterator]); //对象无法用遍历器遍历
+</script>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>改变嵌套的内部this指向</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //01.
+    var point = {
+        x:0,
+        y:0,
+        moveTo:function(x,y){
+            /*
+                多层嵌套的时候，内部函数this指向window
+            */
+            var that = this; 
+            //this无法传到下一级的时候用转存来存到一个变量中，让变量来向下传递
+            function moveToX(x){
+                that.x=x;
+            }
+            function moveToY(y){
+                that.y=y;
+            }
+            //that指向的就是point
+            moveToX(x);
+            moveToY(y);
+            //这两个函数的默认主体是window
+        }
+    }
+    point.moveTo(10,10);
+    console.log(point);
+
+
+
+    //02.
+    //通过call方法来改变调用主体，从而改变this的指向
+    var point1 = {
+        x:0,
+        y:0,
+        moveTo1:function(x,y){
+            function moveToX1(x){
+                this.x=x;
+            }
+            function moveToY1(y){
+                this.y=y;
+            }
+
+            moveToX1.call(this,x);
+            moveToY1.call(this,y);
+        }
+    }
+    /*
+        call方法：
+        切换函数或方法的调用主体，
+        并且执行该方法。
+    */
+    point1.moveTo1(10,10);
+    console.log(point1);
+
+
+
+
+    //03.
+    var point2 = {
+        x:0,
+        y:0,
+        moveTo2:function(x,y){
+            function moveToX2(x){
+                this.x=x;
+            }
+            function moveToY2(y){
+                this.y=y;
+            }
+            //生成一个新的函数
+            var fn1=moveToX2.bind(point2,x);
+            fn1();
+            console.log(fn1);
+        }
+    }
+    point2.moveTo2(10,10);
+    console.log(point2);
+</script>
+</html>

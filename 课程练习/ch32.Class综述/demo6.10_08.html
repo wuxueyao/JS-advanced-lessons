@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        通过static进行的定义
+        静态方法，只能通过类进行调用
+    */
+    class Person{
+        static walk(){
+            console.log(this);
+        }
+    }
+    let p1 = new Person();
+    p1.walk() //静态方法，只能通过类进行调用
+    p1.say();
+    Person.walk();
+    
+</script>
+</html>

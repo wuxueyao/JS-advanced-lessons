@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>异步执行</title>
+</head>
+<body>
+    
+</body>
+<script>
+    setTimeout(function(){
+        console.log("异步执行")
+    },3000);
+    console.log("主程序");
+
+
+    //同步执行：于一个队列里边，一个接一个的执行，一个执行完了才会接着执行下一个
+    //异步执行：有一个主线程，旁边有很多分支，主程序先执行着，等分支满足条件了就去执行，分支不会影响主程序的执行
+</script>
+</html>

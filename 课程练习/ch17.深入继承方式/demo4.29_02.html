@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>constructor</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Foo(){
+
+    }
+    console.log(Foo.prototype.constructor == Foo); //t
+
+    var foo = new Foo();
+    console.log(foo.constructor == Foo); //t
+
+    Foo.prototype = {}; 
+    /*
+        有些情况下直接将一个对象赋值给构造函数的prototype属性，
+        会将constructor属性覆盖掉
+
+        如果直接给构造函数的prototype属性赋值，
+        会覆盖掉prototype上的constructor
+    */
+
+    var foo1 = new foo.constructor();
+    Foo.prototype = {};
+</script>
+</html>

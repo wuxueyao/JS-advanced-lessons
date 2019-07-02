@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型共享问题_2.Person and Student（继承不好）</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person(name){
+        this.name = name;
+    };
+    Person.prototype.age = 22;
+    Person.prototype.showName = function(){
+        console.log(this.name);
+    }
+    function Student(id){
+        this.id = id;
+    }
+
+    //这样写不好，实例化得到的对象名字和年龄都是确定的
+    //希望student实例化得到的对象可以继续person的属性和方法
+    var person = new Person("Mike");
+    Student.prototype = person;
+
+    var s1 = new Student(2017001);
+    var s2 = new Student(2017002);
+
+    console.log(s1.id,s2.id);
+
+
+     /*
+        s1.name
+        s1.__proto__ ==Student.prototype
+        Student.prototype == person
+    */
+    console.log(s1.name,s2.name);
+
+    /*
+        s1.age
+        s1.__proto__ ==Student.prototype
+        Student.prototype == person
+
+        person.__proto__ == Person.prototype
+
+        s1.__proto__.__proto__ == Person.prototype
+    */
+    console.log(s1.age,s2.age);
+    s1.__proto__.name = "Jack";
+    console.log(s2.name);
+    s2.__proto__.__proto__.age = 99;
+    console.log(s1.age);
+</script>
+</html>

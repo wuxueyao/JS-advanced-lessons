@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>严格模式下this</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function thisTest(){
+        "use strict"
+        console.log(this);
+        //严格模式下的this指向undefined
+        //非严格模式指向window
+
+        return this === undefined?true:false;
+        //通过看this的值是否指向undefined来判断是否是严格模式
+    }
+    thisTest();
+</script>
+</html>

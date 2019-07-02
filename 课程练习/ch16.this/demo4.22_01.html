@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>非严格模式下this</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //不管在哪种场景下调用this，this指向的都是调用此函数的主体
+    
+
+
+    var x=1;
+    var y=2;
+    alert(window.x);
+    /*
+        this取决于所在函数的调用主体
+    */
+
+    function thisTest(){
+        console.log(this);
+    }
+    window.thisTest();  
+    //因为这里函数的调用主体是window，所以this指的是window
+
+</script>
+</html>

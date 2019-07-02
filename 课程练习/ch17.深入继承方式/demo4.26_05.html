@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>修改2</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+    };
+    Person.prototype.showName = function(){
+        console.log(this.name);
+    }
+    function Student(name,age,id){
+        Person.call(this,name,age)
+        this.id = id;
+    }
+    //Student.prototype.__proto__=Person.prototype;
+    console.log(Student.prototype);
+
+    //覆盖的前提是Student.prototype上没有定义其他的方法
+    Student.prototype = Object.create(Person.prototype);
+    console.log(Student.prototype);
+    //覆盖之后constructor属性会没有，所以进行了还原
+    Student.prototype.constructor = Student;
+
+    var s1=new Student("赵聪",20,2017001);
+    console.log(s1.constructor);
+    console.log(s1);
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>出现数量匹配</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        数量词：
+            a*        表示匹配前面的字符 0次或者多次
+            a?        表示匹配前面的字符 0次或者1次
+            a+        表示匹配前面的字符 1次或者多次
+            a{n}      表示匹配前面的字符 n次
+            a(m,n)    表示至少匹配m次，至多匹配n次
+            a{m,n}    表示至少匹配m次
+            x|y       表示匹配x或y
+
+    */
+
+    var str = "abcd bcd aabcd";
+
+    var reg1 = /a?bcd/gi; //?表示出现1次或者0次
+    str1 = str.replace(reg1,"x");
+    console.log(str1);  // x x ax
+
+    var reg2 = /a+bcd/gi; //+表示出现1次或者多次
+    str2 = str.replace(reg2,"x");
+    console.log(str2);  // x bcd x
+
+    
+</script>
+</html>

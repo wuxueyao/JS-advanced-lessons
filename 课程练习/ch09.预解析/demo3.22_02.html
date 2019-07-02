@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>预解析-作用域</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //01.
+    var a=1;
+    var b=2;
+    function fn1(){
+        var b=3;
+        var d=4;
+        console.log(b);//3
+        function fn2(){
+            b=5;
+            var e=6;
+        }
+        fn2();
+    }
+    fn1();
+
+
+    //02.
+    var a0=1;
+    var b0=2;
+    function fn10(){
+        var b0=3;
+        var d0=4;
+        function fn20(){
+            b0=5;
+            var e0=6;
+        }
+        fn20();
+    }
+    fn10();
+    console.log(b0);//2
+
+
+    //03.
+    var a1=1;
+    var b1=2;
+    function fn11(){
+        b1=3;
+        var d1=4;
+        function fn21(){
+            b1=5;
+            var e1=6;
+        }
+        fn21();
+    }
+    fn11();
+    console.log(b1);//5
+</script>
+</html>

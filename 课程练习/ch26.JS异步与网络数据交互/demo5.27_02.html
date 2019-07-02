@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>异步的代码结构1</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        异步代码执行
+        分支代码不会影响主程序的执行
+    */
+    var userName = "zhangsan";
+    var age = 30;
+    document.onclick = function(){
+        alert(age);
+    }
+    //触发才会执行
+    console.log(userName);
+</script>
+</html>

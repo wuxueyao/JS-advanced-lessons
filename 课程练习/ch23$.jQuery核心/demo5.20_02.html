@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery对html的操作</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>用户名：</td>
+            <td>
+                <input type="text" id="username"/>
+                <span class="error"></span>
+            </td>
+        <tr>
+            <td>密码：</td>
+            <td>
+                <input type="password" id="pwd"/>
+            </td>
+        </tr>
+    </table>
+</body>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    /*
+        val() 用于获取或者设置表单元素的value值
+        html() 用于获取或者设置选中元素标签内部的html内容
+        css() 用于设置元素的样式，参数可以是对象或两个参数
+    */
+
+    $("#username").blur(function(){
+        var inputVal = $(this).val();
+        if(inputVal==""){
+            $(".error").html("用户名不能为空");
+            $(".error").css("color","red");
+            $(".error").css("font-size","12px");
+
+            //设置css时既可以按上面那样写，也可以传对象进去
+            $(".error").css({
+                "color":"red",
+                "font-size":"12px"
+            });
+
+        }
+    })
+</script>
+</html>

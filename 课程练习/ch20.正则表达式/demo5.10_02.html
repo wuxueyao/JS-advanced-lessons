@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>引用分组</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var str1 = "1ssa1ssfdfdfdf";
+
+    var reg1 = /(\dss)a\1/gi; // 表示\1这个位置引用的是前边括号里的分组
+    var reg11 = /(\dss)(\dxx)a\2/gi; // \2表示引用的是前边的第二个分组
+    var reg2 = /(\dss)(\dss)a/gi; 
+    console.log(str1.replace(reg1,"x"));
+    console.log(str1.replace(reg11,"x"));
+    console.log(str1.replace(reg2,"x"));
+
+    var reg3 = /(ab){3}/gi;
+    var str3 = "ababababcdef";
+    console.log(str3.replace(reg3,"x"));
+
+
+</script>
+</html>

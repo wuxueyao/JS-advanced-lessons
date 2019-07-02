@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>看属性是在自身还是在原型链</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var obj1={x:1};
+    var obj2=Object.create(obj1);
+    //obj1是obj2的原型
+    console.log(obj2.__proto__); //obj1
+    console.log(obj2.__proto__.__proto__);
+    console.log(obj2.__proto__.__proto__.__proto__);
+
+
+    var proObj = {
+        z:3
+    };
+    var obj = Object.create(proObj);
+    obj.x = 1;
+    obj.y = 2;
+    console.log(obj.x); //1
+    console.log(obj.y); //2
+    console.log(obj.z); //3
+
+    console.log("z" in obj); //是自身的，所以是true
+    console.log(obj.hasOwnProperty("z")); //因为是通过原型继承来的，所以是false
+
+
+    /*delete仅可以删除对象自身上面的属性，不能删除继承的原型上的*/
+
+</script>
+</html>
